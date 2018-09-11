@@ -78,7 +78,7 @@ add_filter( 'body_class', 'acorn_woocommerce_active_body_class' );
 function acorn_woocommerce_products_per_page() {
 	return 12;
 }
-add_filter( 'loop_shop_per_page', 'acorn_woocommerce_products_per_page' );
+//add_filter( 'loop_shop_per_page', 'acorn_woocommerce_products_per_page' );
 
 /**
  * Product gallery thumnbail columns.
@@ -98,7 +98,7 @@ add_filter( 'woocommerce_product_thumbnails_columns', 'acorn_woocommerce_thumbna
 function acorn_woocommerce_loop_columns() {
 	return 3;
 }
-add_filter( 'loop_shop_columns', 'acorn_woocommerce_loop_columns' );
+//add_filter( 'loop_shop_columns', 'acorn_woocommerce_loop_columns' );
 
 /**
  * Related Products Args.
