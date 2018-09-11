@@ -120,9 +120,8 @@ add_action( 'widgets_init', 'acorn_widgets_init' );
  * Enqueue scripts and styles.
  */
 function acorn_scripts() {
-	wp_enqueue_style( 'acorn-style', get_stylesheet_uri() );
-
-	wp_enqueue_script( 'acorn-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_style( 'acorn-theme', get_stylesheet_uri() );
+	wp_enqueue_style( 'acorn-style', get_template_directory_uri() . '/assets/css/styles.css' );
 
 	wp_enqueue_script( 'acorn-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
