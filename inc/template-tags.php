@@ -56,6 +56,7 @@ if ( ! function_exists( 'acorn_entry_footer' ) ) :
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
 	function acorn_entry_footer() {
+		?><footer class="entry-footer"><?php
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
@@ -108,6 +109,7 @@ if ( ! function_exists( 'acorn_entry_footer' ) ) :
 			'<span class="edit-link">',
 			'</span>'
 		);
+		?></footer><!-- .entry-footer --><?php
 	}
 endif;
 
