@@ -79,6 +79,9 @@ if ( ! function_exists( 'acorn_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		// Support align-wide in Gutenberg
+    add_theme_support( 'align-wide' );
 	}
 endif;
 add_action( 'after_setup_theme', 'acorn_setup' );
