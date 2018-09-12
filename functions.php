@@ -120,9 +120,10 @@ add_action( 'widgets_init', 'acorn_widgets_init' );
  * Enqueue scripts and styles.
  */
 function acorn_scripts() {
-	wp_enqueue_style( 'acorn-theme', get_stylesheet_uri() );
+//	wp_enqueue_style( 'acorn-theme', get_stylesheet_uri() );
 	wp_enqueue_style( 'acorn-style', get_template_directory_uri() . '/assets/css/styles.css' );
 
+	wp_enqueue_script( 'main-acorn', get_template_directory_uri() . '/assets/js/app.min.js', array(), '20151215', true );
 	wp_enqueue_script( 'acorn-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -132,24 +133,18 @@ function acorn_scripts() {
 add_action( 'wp_enqueue_scripts', 'acorn_scripts' );
 
 /**
- * Implement the Custom Header feature.
+ * Library files.
  */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/customizer.php';
+$files = array(
+	'custom-header', // Implement the Custom Header feature.
+	'template-tags', // Custom template tags for this theme.
+	'template-functions', // Functions which enhance the theme by hooking into WordPress.
+	'customizer', // Customizer additions.
+	'walker-nav' // Bootstrap 4 Walker_Nav_Menu
+);
+foreach ( $files as $file ) {
+	require get_template_directory() . '/inc/'.$file.'.php';
+}
 
 /**
  * Load Jetpack compatibility file.
