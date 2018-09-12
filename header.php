@@ -15,4 +15,4 @@ get_template_part( 'template-parts/head' ); ?>
 
 	<?php get_template_part( 'template-parts/nav' ); ?>
 
-	<div id="content" class="site-content container">
+	<div id="content" class="site-content <?php echo acorn_get_content_class(); ?>">

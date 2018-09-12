@@ -148,3 +148,11 @@ if ( ! function_exists( 'acorn_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+function acorn_get_content_class() {
+	$class = 'container';
+	if ( is_archive() ) {
+		$class = 'container-fluid';
+	}
+	return $class;
+}
