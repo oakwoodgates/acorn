@@ -13,6 +13,6 @@ get_template_part( 'template-parts/head' ); ?>
 
 <div id="page" class="site">
 
-	<?php get_template_part( 'template-parts/nav' ); ?>
+	<?php get_template_part( 'template-parts/header' ); ?>
 
-	<div id="content" class="site-content <?php echo acorn_get_content_class(); ?>">
+	<div id="content" class="site-content">

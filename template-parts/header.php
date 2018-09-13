@@ -1,6 +1,6 @@
 <header class="banner">
   <a class="skip-link screen-reader-text sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'acorn' ); ?></a>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <?php the_custom_logo(); ?>
 

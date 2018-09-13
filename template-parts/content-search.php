@@ -29,7 +29,5 @@
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 
-	<footer class="entry-footer">
-		<?php acorn_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<?php acorn_entry_footer(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -20,16 +20,21 @@ get_header();
 
 		<?php
 		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-		endwhile; // End of the loop.
-		?>
+			the_post(); ?>
+			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php get_template_part( 'template-parts/title' ); ?>
+				<div class="entry-content container">
+					<?php get_template_part( 'template-parts/content', 'page' ); ?>
+				</div><!-- .entry-content -->
+				<?php if ( get_edit_post_link() ) : ?>
+					<?php acorn_entry_footer(); ?>
+				<?php endif; ?>
+			</article><!-- #post-<?php the_ID(); ?> -->
+		<?php
+		endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();
