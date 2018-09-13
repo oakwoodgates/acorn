@@ -1,2 +1,10 @@
+/** Bootstrap variable overrides */
 @import "variables";
-@import "../../node_modules/bootstrap/scss/bootstrap";
+
+/** Bootstrap 4 library */
+@import "bootstrap/bootstrap";
+
+/** Add Bootstrap compatibility for default WordPress HTML */
+@import "wp/comments";
+@import "wp/forms";
+@import "wp/wp-classes";
