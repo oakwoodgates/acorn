@@ -102,47 +102,15 @@ function acorn_content_width() {
 add_action( 'after_setup_theme', 'acorn_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function acorn_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'acorn' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'acorn' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'acorn_widgets_init' );
-
-/**
- * Enqueue scripts and styles.
- */
-function acorn_scripts() {
-//	wp_enqueue_style( 'acorn-theme', get_stylesheet_uri() );
-	wp_enqueue_style( 'acorn-style', get_template_directory_uri() . '/assets/css/styles.css' );
-
-	wp_enqueue_script( 'main-acorn', get_template_directory_uri() . '/assets/js/app.min.js', array(), '20151215', true );
-	wp_enqueue_script( 'acorn-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'acorn_scripts' );
-
-/**
  * Library files.
  */
 $files = array(
 	'custom-header', // Implement the Custom Header feature.
+	'customizer', // Customizer additions.
+	'scripts', // Enqueue the assets.
+	'sidebars', // Register widget areas.
 	'template-tags', // Custom template tags for this theme.
 	'template-functions', // Functions which enhance the theme by hooking into WordPress.
-	'customizer', // Customizer additions.
 	'walker-nav' // Bootstrap 4 Walker_Nav_Menu
 );
 foreach ( $files as $file ) {
