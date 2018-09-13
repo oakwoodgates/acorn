@@ -11,6 +11,8 @@
 
 get_template_part( 'template-parts/head' ); ?>
 
+<body <?php body_class(); ?>>
+
 <div id="page" class="site">
 
 	<?php get_template_part( 'template-parts/header' ); ?>
