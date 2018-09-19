@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area container">
 
 	<?php
 	// You can start editing here -- including this comment!
@@ -63,7 +63,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'acorn' ); ?></p>
+			<div class="no-comments alert alert-info"><?php esc_html_e( 'Comments are closed.', 'acorn' ); ?></div>
 			<?php
 		endif;
 
