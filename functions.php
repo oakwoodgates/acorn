@@ -105,6 +105,7 @@ add_action( 'after_setup_theme', 'acorn_content_width', 0 );
  * Library files.
  */
 $files = array(
+	'compat', // 3rd party plugin compatibility.
 	'custom-header', // Implement the Custom Header feature.
 	'customizer', // Customizer additions.
 	'scripts', // Enqueue the assets.
@@ -115,18 +116,4 @@ $files = array(
 );
 foreach ( $files as $file ) {
 	require get_template_directory() . '/inc/'.$file.'.php';
-}
-
-/**
- * Load Jetpack compatibility file.
- */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
-
-/**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
 }
