@@ -35,3 +35,12 @@ function acorn_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'acorn_pingback_header' );
+
+function acorn_entry_content_container_class() {
+	if ( function_exists( 'has_blocks' ) && has_blocks() ) {
+		$container_class = 's-gutenberg';
+	} else {
+		$container_class = 'container';
+	}
+	return $container_class;
+}

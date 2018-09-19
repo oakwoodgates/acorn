@@ -14,7 +14,7 @@
 
 	<?php acorn_post_thumbnail(); ?>
 
-	<div class="entry-content container">
+	<div class="entry-content <?php echo acorn_entry_content_container_class() ?>">
 		<?php
 		the_content();
 		wp_link_pages( array(
