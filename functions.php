@@ -82,6 +82,9 @@ if ( ! function_exists( 'acorn_setup' ) ) :
 
 		// Support align-wide in Gutenberg
     add_theme_support( 'align-wide' );
+
+		// Add Gutenberg default styles
+		add_theme_support( 'wp-block-styles' );
 	}
 endif;
 add_action( 'after_setup_theme', 'acorn_setup' );
