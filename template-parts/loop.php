@@ -13,6 +13,7 @@
       </div><!-- .entry-meta -->
     <?php endif; ?>
   </header><!-- .entry-header -->
+
   <?php	acorn_post_thumbnail(); ?>
 
   <div class="entry-content">
@@ -20,5 +21,7 @@
     the_excerpt();
     ?>
   </div><!-- .entry-content -->
+
   <?php acorn_entry_footer(); ?>
+
 </article><!-- #post-<?php the_ID(); ?> -->
