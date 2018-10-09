@@ -17,11 +17,14 @@
 function acorn_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
-		'container' => 'main',
+	//	'type'      => 'click',
+		'container' => 'post-row',
+		'wrapper'   => false, 
 		'render'    => 'acorn_infinite_scroll_render',
-		'footer'    => 'page',
+		'footer'	=> false,
+		'posts_per_page' => 6
 	) );
-
+  
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 
@@ -53,7 +56,7 @@ function acorn_infinite_scroll_render() {
 		if ( is_search() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
-			get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/loop', get_post_type() );
 		endif;
 	}
 }
