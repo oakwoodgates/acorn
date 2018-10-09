@@ -17,7 +17,7 @@
 function acorn_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
-	//	'type'      => 'click',
+		'type'      => 'click',
 		'container' => 'post-row',
 		'wrapper'   => false, 
 		'render'    => 'acorn_infinite_scroll_render',
