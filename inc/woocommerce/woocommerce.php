@@ -50,36 +50,6 @@ function acorn_woocommerce_active_body_class( $classes ) {
 add_filter( 'body_class', 'acorn_woocommerce_active_body_class' );
 
 /**
- * Products per page.
- *
- * @return integer number of products.
- */
-function acorn_woocommerce_products_per_page() {
-	return 12;
-}
-//add_filter( 'loop_shop_per_page', 'acorn_woocommerce_products_per_page' );
-
-/**
- * Product gallery thumnbail columns.
- *
- * @return integer number of columns.
- */
-function acorn_woocommerce_thumbnail_columns() {
-	return 4;
-}
-add_filter( 'woocommerce_product_thumbnails_columns', 'acorn_woocommerce_thumbnail_columns' );
-
-/**
- * Default loop columns on product archives.
- *
- * @return integer products per row.
- */
-function acorn_woocommerce_loop_columns() {
-	return 3;
-}
-//add_filter( 'loop_shop_columns', 'acorn_woocommerce_loop_columns' );
-
-/**
  * Related Products Args.
  *
  * @param array $args related products args.
