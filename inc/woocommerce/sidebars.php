@@ -9,7 +9,7 @@ function acorn_woocommerce_widgets_init() {
 		'name'          => esc_html__( 'Shop Sidebar', 'acorn' ),
 		'id'            => 'sidebar-shop',
 		'description'   => esc_html__( 'Add widgets here.', 'acorn' ),
-		'before_widget' => '<section id="%1$s" class="widget mb-2 col-12 col-md-6 col-lg-3 %2$s">',
+		'before_widget' => '<section id="%1$s" class="widget mb-2 col-12 col-sm-6 col-md-12 %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',

@@ -1,4 +1,8 @@
-<header class="jumbotron jumbotron-fluid bg-dark text-light text-center entry-header">
+<?php
+$class = is_singular() ? 'entry-header' : 'page-header';
+?>
+
+<header class="jumbotron jumbotron-fluid bg-dark text-light text-center <?php echo $class ?>">
 	<div class="container">
 		<?php
 		if ( is_home() && ! is_front_page() ) {

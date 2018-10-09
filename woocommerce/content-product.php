@@ -25,34 +25,35 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 
 $columns = wc_get_loop_prop( 'columns' );
+$default_classes = 'd-flex col-12';
 if ( is_archive() ) :
   switch ( $columns ) {
     case '1':
-      $class = 'd-flex col-12';
+      $class = $default_classes;
       break;
     case '2':
-      $class = 'd-flex col-12 col-sm-6 col-lg-6';
+      $class = $default_classes . ' col-sm-6 col-lg-6';
       break;
     case '3':
-      $class = 'd-flex col-12 col-sm-6 col-lg-4';
+      $class = $default_classes . ' col-sm-6 col-lg-4';
       break;
     case '4':
-      $class = 'd-flex col-12 col-sm-6 col-lg-3';
+      $class = $default_classes . ' col-sm-6 col-lg-3';
       break;
     case '6':
-      $class = 'd-flex col-12 col-sm-6 col-lg-2';
+      $class = $default_classes . ' col-sm-6 col-lg-2';
       break;
     default:
-      $class = 'd-flex col-12 col-sm-6 col-lg-3';
+      $class = $default_classes . ' col-sm-6 col-lg-3';
       break;
   }
 else:
-	$class = 'd-flex col-12 col-sm-6 col-lg-3';
+	$class = $default_classes . ' col-sm-6 col-lg-3';
 endif;
 ?>
 
-<div class="<?php echo $class ?>">
-	<div <?php wc_product_class( 'card mb-5 text-center w-100' ); ?>>
+<div <?php wc_product_class( $class ); ?>>
+	<div class="card mb-5 text-center w-100 justify-content-between">
 
 		<?php
 		/**

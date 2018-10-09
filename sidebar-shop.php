@@ -13,5 +13,7 @@ if ( ! is_active_sidebar( 'sidebar-shop' ) ) {
 ?>
 
 <aside id="secondary" class="widget-area col-md-4 col-lg-3 col-xl-3">
-	<?php dynamic_sidebar( 'sidebar-shop' ); ?>
+	<div class="row">
+		<?php dynamic_sidebar( 'sidebar-shop' ); ?>
+	</div>
 </aside><!-- #secondary -->

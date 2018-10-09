@@ -46,6 +46,7 @@ get_header( 'shop' );
 		</p><!-- .lead -->
 	</div>
 </header>
+
 <div class="container-fluid">
   <div class="row">
     <?php
@@ -59,7 +60,7 @@ get_header( 'shop' );
 
       <?php
       if ( woocommerce_product_loop() ) {
-        ?><div><?php
+        ?><div class="d-flex"><?php
 
       	/**
       	 * Hook: woocommerce_before_shop_loop.
