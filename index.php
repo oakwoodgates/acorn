@@ -29,7 +29,7 @@ get_header();
 			?>
 
 			<div class="<?php echo $container_class; ?>">
-				<div class="row">
+				<div id="post-row" class="row">
 
 					<?php
 					/* Start the Loop */

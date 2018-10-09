@@ -18,7 +18,7 @@ get_header();
 			<?php get_template_part( 'template-parts/title' ); ?>
 
 			<div class="container-fluid">
-				<div class="row">
+				<div id="post-row" class="row">
 					<?php
 					/* Start the Loop */
 					while ( have_posts() ) :
