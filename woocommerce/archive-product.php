@@ -50,7 +50,7 @@ get_header( 'shop' );
 <div class="container-fluid">
   <div class="row">
     <?php
-    if ( is_active_sidebar( 'sidebar-shop' ) ) :
+    if ( is_active_sidebar( 'sidebar-3' ) ) :
       $class = 'col-12 col-md-8 col-lg-9 col-xl-9 order-md-2';
     else:
       $class = 'col-12';
