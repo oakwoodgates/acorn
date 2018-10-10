@@ -16,7 +16,7 @@ function acorn_widgets_init() {
 	) );
   register_sidebar( array(
 		'name'          => esc_html__( 'Footer', 'acorn' ),
-		'id'            => 'sidebar-footer',
+		'id'            => 'sidebar-2',
 		'description'   => esc_html__( 'Add widgets here.', 'acorn' ),
 		'before_widget' => '<section id="%1$s" class="widget mb-2 col-12 col-md-6 col-lg-3 %2$s">',
 		'after_widget'  => '</section>',
