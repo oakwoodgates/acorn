@@ -108,6 +108,7 @@ add_action( 'after_setup_theme', 'acorn_content_width', 0 );
  * Library files.
  */
 $files = array(
+	'variables', // Sitewide variables to use within templates and functions.
 	'compat', // 3rd party plugin compatibility.
 	'custom-header', // Implement the Custom Header feature.
 	'customizer', // Customizer additions.
