@@ -23,7 +23,9 @@ get_header();
 			the_post(); ?>
 
 			<article <?php post_class(); ?>>
-				<div class="entry-content container">
+				<?php get_template_part( 'template-parts/title' ); ?>
+
+				<div class="entry-content">
 
 					<?php 
 					the_content(); ?>
