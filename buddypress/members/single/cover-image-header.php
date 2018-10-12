@@ -10,7 +10,7 @@
 <div id="cover-image-container">
 	<div id="header-cover-image"></div>
 
-	<div id="item-header-cover-image">
+	<div id="item-header-cover-image" class="px-0 <?php echo Acorn_Vars::get_buddypress_content_container() ?>">
 		<div id="item-header-avatar">
 			<a href="<?php bp_displayed_user_link(); ?>">
 
