@@ -23,9 +23,13 @@ get_header();
 			the_post(); ?>
 
 			<article <?php post_class(); ?>>
-				<?php get_template_part( 'template-parts/title' ); ?>
+				<?php 
+				if ( ! ( bp_is_user() || bp_is_group() ) ) {
+					get_template_part( 'template-parts/title' );
+				} 
+				?>
 
-				<div class="entry-content">
+				<div class="entry-content <?php echo Acorn_Vars::get_buddypress_container_wrapper() ?>">
 
 					<?php 
 					the_content(); ?>
