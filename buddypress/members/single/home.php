@@ -6,7 +6,6 @@
  * @version 3.0.0
  */
 ?>
-<div class="<?php echo Acorn_Vars::get_buddypress_container_wrapper() ?>">
 	<?php bp_nouveau_member_hook( 'before', 'home_content' ); ?>
 
 	<div id="item-header" role="complementary" data-bp-item-id="<?php echo esc_attr( bp_displayed_user_id() ); ?>" data-bp-item-component="members" class="users-header single-headers">
@@ -30,4 +29,3 @@
 	</div><!-- // .bp-wrap -->
 
     <?php bp_nouveau_member_hook( 'after', 'home_content' ); ?>
-</div>
