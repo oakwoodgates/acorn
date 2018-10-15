@@ -22,7 +22,7 @@ function acorn_jetpack_setup() {
 		'wrapper'   => false, 
 		'render'    => 'acorn_infinite_scroll_render',
 		'footer'	=> false,
-		'posts_per_page' => 6
+	//	'posts_per_page' => 6
 	) );
   
 	// Add theme support for Responsive Videos.
