@@ -15,6 +15,7 @@
 	 'scripts', // Enqueue the assets.
 	 'sidebars', // Register widget areas.
 	 'template-hooks', // Add (new) and remove (default) template actions.
+	 'template-filters', // Override with filters where possible.
  );
  foreach ( $files as $file ) {
 	 require get_template_directory() . '/inc/woocommerce/'.$file.'.php';
