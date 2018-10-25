@@ -1,0 +1,28 @@
+.input-text {
+	@extend .form-control;
+}
+
+form.cart {
+	@extend	.form-inline;
+}
+
+.button {
+	@extend	.btn;
+	@extend	.btn-secondary;
+}
+
+.button.single_add_to_cart_button {
+	@extend	.btn;
+	@extend	.btn-primary;
+}
+
+.onsale {
+	@extend	.badge;
+	@extend	.badge-success;
+	@extend .position-absolute;
+}
+
+.products[class*="columns-"] {
+	@include make-row;
+	@extend .list-unstyled;
+}
