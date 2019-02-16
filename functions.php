@@ -186,7 +186,7 @@ function acorn_template_part( $slug, $template_vars = array(), $content_vars = a
 	echo ob_get_clean();
 }
 
-function acorn_loop_template( $wrapper_template, $single_template ) {
+function acorn_loop( $wrapper_template, $single_template ) {
 	/* Start the Loop */
 	while ( have_posts() ) : 
 		the_post();
