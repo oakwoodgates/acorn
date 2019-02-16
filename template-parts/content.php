@@ -9,7 +9,7 @@
 
 ?>
 <?php 
-if ( is_singular ) : ?>
+if ( is_singular() ) : ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php get_template_part( 'template-parts/title' ); ?>
 
