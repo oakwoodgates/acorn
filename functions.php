@@ -121,3 +121,76 @@ $files = array(
 foreach ( $files as $file ) {
 	require get_template_directory() . '/inc/'.$file.'.php';
 }
+
+function acorn_template( $file, $params ) {
+	ob_start();
+	include( $file ); 
+	$output = ob_get_contents();
+	ob_end_clean();
+	return $output;
+}
+
+/**
+ * Like get_template_part() put lets you pass args to the template file
+ * Args are available in the template as $vars array
+ * @param string filepart
+ * @param mixed array of variables to use within template
+ */
+function acorn_template_part( $slug, $template_vars = array(), $content_vars = array() ) {
+
+	// setup default variables if none passed
+	if ( ! $content_vars ) {
+		$title   = get_the_title();
+		$content = get_the_excerpt();
+		$link    = get_the_permalink();
+
+		$img_id  = get_post_thumbnail_id();
+		$img_src = wp_get_attachment_image_src( $img_id, 'thumbnail' );
+		$img_src = isset( $img_src[0] ) ? $img_src[0] : '';
+		if ( $img_src ) {
+			$img_alt = trim( strip_tags( get_post_meta( $img_id, '_wp_attachment_image_alt', true ) ) );
+		} else {
+			$img_alt = $title . ' image';
+		}
+
+		$content_vars = array(
+			'img_src' 	=> $img_src,
+			'img_alt' 	=> $img_alt,
+			'title' 	=> $title,
+			'content' 	=> $content,
+			'link' 		=> $link
+		);
+	}
+
+	$c = get_stylesheet_directory() . '/template-parts/components/';
+	$p = get_template_directory()   . '/template-parts/components/';
+	$post_type = get_post_type();
+
+	// find the template
+	if ( file_exists(  $c . $slug . '-'. $post_type . '.php' ) )
+		$file = $c . $slug . '-'. $post_type . '.php';
+	elseif ( file_exists( $p . $slug . '-'. $post_type . '.php' ) )
+		$file = $p . $slug . '-'. $post_type . '.php';
+	elseif ( file_exists( $c . $slug . '.php' ) )
+		$file = $c . $slug . '.php';
+	elseif ( file_exists( $p . $slug . '.php' ) )
+		$file = $p . $slug . '.php';
+	else $file = '';
+
+	// output the template
+	ob_start();
+//	do_action( 'acorn_template_wrapper_start', $slug );
+	if ( $file )
+		require( $file );
+//	do_action( 'acorn_template_wrapper_end', $slug );
+	echo ob_get_clean();
+}
+
+function acorn_loop_template( $wrapper_template, $single_template ) {
+	/* Start the Loop */
+	while ( have_posts() ) : 
+		the_post();
+		$content_vars = apply_filters( 'acorn_single_template_vars', array(), get_the_ID(), $wrapper_template, $single_template ); 
+		acorn_template_part( 'single/' . $single_template, $content_vars ); 
+	endwhile;
+}
