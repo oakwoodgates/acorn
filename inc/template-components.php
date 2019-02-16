@@ -15,7 +15,7 @@ function acorn_badge( $content, $link = '', $variation = '', $pill = false, $cla
 		$classes .= ' badge-' . $variation;
 
 	if ( $link ) {
-		echo '<a href="#" class="' . $classes . '">' . $content . '</a> ';
+		echo '<a href="' . $link . '" class="' . $classes . '">' . $content . '</a> ';
 	} else {
 		echo '<span class="' . $classes . '">' . $content . '</span> ';
 	}
