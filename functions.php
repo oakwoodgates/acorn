@@ -112,7 +112,6 @@ $files = array(
 	'compat', // 3rd party plugin compatibility.
 	'custom-header', // Implement the Custom Header feature.
 	'customizer', // Customizer additions.
-	'helpers', // Functions to help get data.
 	'scripts', // Enqueue the assets.
 	'sidebars', // Register widget areas.
 	'template-helpers', // Functions to get and prepare data.
