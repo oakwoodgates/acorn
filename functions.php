@@ -114,6 +114,7 @@ $files = array(
 	'customizer', // Customizer additions.
 	'scripts', // Enqueue the assets.
 	'sidebars', // Register widget areas.
+	'template-components', // Functions create small component parts used in templates.
 	'template-helpers', // Functions to get and prepare data.
 	'template-tags', // Custom template tags for this theme.
 	'template-functions', // Functions which enhance the theme by hooking into WordPress.
