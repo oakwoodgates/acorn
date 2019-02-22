@@ -6,6 +6,16 @@
  */
 
 /**
+ * Customizer library files.
+ */
+$files = array(
+	'colors' // Sitewide variables to use within templates and functions.
+);
+foreach ( $files as $file ) {
+	require get_template_directory() . '/inc/customizer/'.$file.'.php';
+}
+
+/**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
