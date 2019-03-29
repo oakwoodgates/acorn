@@ -80,8 +80,8 @@ if ( ! function_exists( 'acorn_setup' ) ) :
 			'flex-height' => true,
 		) );
 
-		// Support align-wide in Gutenberg
-    add_theme_support( 'align-wide' );
+		// Support align-wide in Gutenberg 
+		add_theme_support( 'align-wide' );
 
 		// Add Gutenberg default styles
 		add_theme_support( 'wp-block-styles' );
@@ -147,7 +147,7 @@ function acorn_template_part( $slug, $template_vars = array(), $content_vars = a
 		$link    = get_the_permalink();
 
 		$img_id  = get_post_thumbnail_id();
-		$img_src = wp_get_attachment_image_src( $img_id, 'thumbnail' );
+		$img_src = wp_get_attachment_image_src( $img_id, 'large' );
 		$img_src = isset( $img_src[0] ) ? $img_src[0] : '';
 		if ( $img_src ) {
 			$img_alt = trim( strip_tags( get_post_meta( $img_id, '_wp_attachment_image_alt', true ) ) );
@@ -195,4 +195,82 @@ function acorn_loop( $wrapper_template, $single_template ) {
 		$content_vars = apply_filters( 'acorn_single_template_vars', array(), get_the_ID(), $wrapper_template, $single_template ); 
 		acorn_template_part( 'single/' . $single_template, $content_vars ); 
 	endwhile;
+}
+
+function my_builder_color_presets( $colors ) {
+    $colors = array();
+      
+      $colors[] = '8E181B';
+      $colors[] = 'D11C23';
+      $colors[] = '1A4688';
+      $colors[] = 'D6E1EE';
+      $colors[] = 'fdfffc';
+      $colors[] = 'f1d302';
+  
+    return $colors;
+}
+add_filter( 'fl_builder_color_presets', 'my_builder_color_presets' );
+
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Header Settings',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+	
+}
+
+
+/**
+ * Add server-side active_callbacks for the site title and tagline controls.
+ *
+ * When the preview is refreshed, the active states for the blogname and blogdescription
+ * controls will be returned by `get_header_text_control_active_state` and sent from
+ * the preview back to the pane, causing these controls to show or hide _after_ the
+ * preview has finished refreshing. This server-side method sufficient is sufficient
+ * by itself because the header_textcolor setting has a refresh transport. If, however,
+ * the setting has a postMessage transport, then the active state for the blogname
+ * and blogdescription controls would need to be manipulated in JS as well.
+ * This can be seen in conditionally-contextual-site-title-and-tagline-customizer-controls.js.
+ *
+ * @param \WP_Customize_Manager $wp_customize Manager.
+ */
+function my_customize_register( \WP_Customize_Manager $wp_customize ) {
+	$header_text_controls = array_filter( array(
+		$wp_customize->get_control( 'blogname' ),
+		$wp_customize->get_control( 'blogdescription' ),
+	) );
+	foreach ( $header_text_controls as $header_text_control ) {
+		$header_text_control->active_callback = 'my_get_header_text_control_active_state';
+	}
+}
+// add_action( 'customize_register', 'my_customize_register', 11 );
+/**
+ * Get header text control active state.
+ *
+ * @param \WP_Customize_Control $control Control for site title or tagline.
+ * @return bool Active.
+ */
+function my_get_header_text_control_active_state( \WP_Customize_Control $control ) {
+	$setting = $control->manager->get_setting( 'header_textcolor' );
+	if ( ! $setting ) {
+		return true;
+	}
+	return 'blank' !== $setting->value();
 }

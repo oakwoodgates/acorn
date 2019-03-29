@@ -15,7 +15,9 @@ add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
  * @return void
  */
 function acorn_woocommerce_scripts() {
-	wp_enqueue_style( 'acorn-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+//	wp_enqueue_style( 'acorn-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
+
+
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
@@ -31,4 +33,4 @@ function acorn_woocommerce_scripts() {
 
 	wp_add_inline_style( 'acorn-woocommerce-style', $inline_font );
 }
- // add_action( 'wp_enqueue_scripts', 'acorn_woocommerce_scripts' );
+// add_action( 'wp_enqueue_scripts', 'acorn_woocommerce_scripts' );

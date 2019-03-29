@@ -148,3 +148,15 @@ if ( ! function_exists( 'acorn_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+function acorn_tag_badges() {
+	$terms = acorn_get_the_terms_array( 0, 'post_tag' );
+	if ( ! empty( $terms ) ) {
+		esc_html_e( 'Tagged: ', 'acorn' );
+		foreach ( $terms as $term ) {
+			acorn_badge( $term['name'], $term['url'], 'primary' );
+		}
+	}
+}
+
+

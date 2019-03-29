@@ -24,12 +24,13 @@ get_header();
 
 			<article <?php post_class(); ?>>
 				<?php 
-				if ( ! ( bp_is_user() || bp_is_group() ) ) {
+			//	if ( ! ( bp_is_user() || bp_is_group() ) ) {
+				if ( bp_is_directory() ) {
 					get_template_part( 'template-parts/title' );
 				} 
 				?>
 
-				<div class="entry-content <?php echo Acorn_Vars::get_buddypress_container_wrapper() ?>">
+				<div class="entry-content <?php // echo Acorn_Vars::get_buddypress_entry_content_wrapper() ?>">
 
 					<?php 
 					the_content(); ?>

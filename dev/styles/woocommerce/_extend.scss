@@ -2,7 +2,7 @@
 	@extend .form-control;
 }
 
-form.cart {
+form.cart .quantity {
 	@extend	.form-inline;
 }
 

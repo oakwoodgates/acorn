@@ -9,10 +9,15 @@
  * Customizer library files.
  */
 $files = array(
-	'colors' // Sitewide variables to use within templates and functions.
+	'skin', // Load the brand panel
+	'skin-colors', // Sitewide variables to use within templates and functions.
+	'skin-fonts',
+	'skin-layout',
 );
 foreach ( $files as $file ) {
-	require get_template_directory() . '/inc/customizer/'.$file.'.php';
+	if ( class_exists( 'Kirki' ) ) {
+		require get_template_directory() . '/inc/customizer/'.$file.'.php';
+	}
 }
 
 /**

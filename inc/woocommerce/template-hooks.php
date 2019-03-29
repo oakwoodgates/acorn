@@ -19,12 +19,18 @@ class Acorn_Woo_Template_Hooks {
 	 */
    public static function init() {
  		// Remove default wrappers.
- 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
- 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
+ 	//	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
+ 	//	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
 
  		// Add custom wrappers.
- 		add_action( 'woocommerce_before_main_content', array( __CLASS__, 'output_content_wrapper' ) );
- 		add_action( 'woocommerce_after_main_content', array( __CLASS__, 'output_content_wrapper_end' ) );
+// 		add_action( 'woocommerce_before_main_content', array( __CLASS__, 'output_content_wrapper' ) );
+// 		add_action( 'woocommerce_after_main_content', array( __CLASS__, 'output_content_wrapper_end' ) );
+
+
+
+//    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+
+
 	}
 
   /**
